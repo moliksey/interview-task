@@ -1,0 +1,13 @@
+env: "deploy"
+storage:
+  host:     "interview-task-db"
+  port:     "5432"
+  username: "postgres"
+  password: "root"
+  dbname:   "postgres"
+  ssl-mode:  "disable"
+http_server:
+  address: "0.0.0.0:8080"
+  timeout: 4
+  idle-timeout: 100
+

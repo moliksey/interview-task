@@ -1,0 +1,13 @@
+env: "local"
+storage:
+  host:     "localhost"
+  port:     "5433"
+  username: "postgres"
+  password: "root"
+  dbname:   "postgres"
+  ssl-mode:  "disable"
+http_server:
+  address: "localhost:8080"
+  timeout: 4
+  idle-timeout: 100
+

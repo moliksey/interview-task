@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  interview-task-db:
+    image: postgres:latest
+    container_name: "interview-task-db"
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_PASSWORD: "root"
+
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ./wait-for-postgres.sh interview-task-db ./migrate.sh ./bin/app
+    container_name: interview-task-app
+    ports:
+      - "8080:8080"
+    environment:
+      DB_PASSWORD: root
+      CONFIG_PATH: ./config/deploy.yaml
+      SECRET_KEY: secret_key
+      EMAIL_PASS: "cged njaa lweq snyy"
+    depends_on:
+      - interview-task-db
